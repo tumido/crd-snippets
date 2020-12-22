@@ -1,0 +1,138 @@
+name: Release issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  check-release:
+    name: Check if it's an issue release
+    runs-on: ubuntu-latest
+    outputs:
+      commentId: ${{ steps.comment.outputs.comment-id }}
+    steps:
+      - name: Check if user has write access
+        uses: lannonbr/repo-permission-check-action@2.0.0
+        continue-on-error: true
+        id: access
+        with:
+          permission: write
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check issue label
+        if: ${{ !contains(github.event.issue.labels.*.name, 'release') }}
+        continue-on-error: true
+        id: releaseLabel
+        run: exit 1
+
+      - name: Close Issue
+        uses: peter-evans/close-issue@v1
+        if: ${{ !steps.access.outcome == 'failure' && steps.releaseLabel.outcome == 'success' }}
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            ⛔ You're not a maintainer @${{ github.event.issue.user.id }}. You can't trigger a release.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Exit on failure
+        if: ${{ steps.access.outcome == 'failure' || steps.releaseLabel.outcome == 'failure' }}
+        run: exit 1
+
+      - name: Create success comment
+        uses: peter-evans/create-or-update-comment@v1
+        if: ${{ success() }}
+        id: comment
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            🚀 Release issue noticed. Build triggered from ${{ github.sha }}.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Build
+    needs: check-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build VSIX extension file
+        uses: HaaLeo/publish-vscode-extension@v0
+        with:
+          dryRun: true
+          pat: stub
+
+      - name: Archive the extension build file
+        uses: actions/upload-artifact@v2
+        with:
+          name: extension
+          path: "*.vsix"
+          retention-days: 1
+
+  release:
+    name: Release
+    needs: [check-release, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment-id: ${{ needs.check-release.outputs.commentId }}
+          body: |
+            📦 Releasing to Github...
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Release via semantic-release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger "Release" workflow if new release was created
+        uses: peter-evans/repository-dispatch@v1
+        if: steps.semantic.outputs.new_release_published == 'true'
+        with:
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          event-type: trigger-release
+          client-payload: '{"github": ${{ toJson(github) }},"commentId": "${{ needs.check-release.outputs.commentId }}" }'
+
+      - name: Update comment
+        uses: peter-evans/create-or-update-comment@v1
+        if: steps.semantic.outputs.new_release_published != 'true'
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment-id: ${{ needs.check-release.outputs.commentId }}
+          body: |
+            ⛔ Semantic release determined that no release is needed. Closing.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Close Issue
+        uses: peter-evans/close-issue@v1
+        if: steps.semantic.outputs.new_release_published != 'true'
+        with:
+          issue-number: ${{ github.event.issue.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
