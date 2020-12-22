@@ -1,0 +1,54 @@
+{
+    "Integreatly: Grafana": {
+        "prefix": "grafana-instance",
+        "body": [
+            "---",
+            "apiVersion: integreatly.org/v1alpha1",
+            "kind: Grafana",
+            "metadata:",
+            "  name: $1",
+            "spec:",
+            "  ingress:",
+            "    enabled: True",
+            "  config:",
+            "    log:",
+            "      mode: console",
+            "      level: warn",
+            "    auth:",
+            "      disable_login_form: False",
+            "      disable_signout_menu: True",
+            "    auth.anonymous:",
+            "      enabled: True",
+            "  dashboardLabelSelector:",
+            "    - matchExpressions:",
+            "        - ${2:{ key: app, operator: In, values: [grafana] }}"
+        ],
+    },
+    "Integreatly: Grafana Dashboard": {
+        "prefix": "grafana-dashboard",
+        "body": [
+            "---",
+            "apiVersion: integreatly.org/v1alpha1",
+            "kind: GrafanaDashboard",
+            "metadata:",
+            "  name: $1",
+            "spec:",
+            "  name: $1.json",
+            "  ${2|url,json,configmapKeyRef|}: $3"
+        ]
+    },
+    "Integreatly: Grafana Datasource": {
+        "prefix": "grafana-datasource",
+        "body": [
+            "---",
+            "apiVersion: integreatly.org/v1alpha1",
+            "kind: GrafanaDataSource",
+            "metadata:",
+            "  name: $1",
+            "spec:",
+            "  name: $1.yaml",
+            "  datasources:",
+            "    - name: "
+        ]
+    },
+}

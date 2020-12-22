@@ -2,7 +2,7 @@
 
 # Kubernetes CRD Snippets
 
-YAML snippets for popular Kubernetes Custom Resources.
+YAML snippets for popular Kubernetes Custom Resources. If you'd like to see snippets for CRDs you use, just [file an issue](https://github.com/tumido/crd-snippets/issues/new) or submit a PR - contributions are welcome!
 
 ## Suggested extensions
 
@@ -15,15 +15,16 @@ YAML snippets for popular Kubernetes Custom Resources.
 
 Includes snippets for following CRDs:
 
-| Project        | Group                     | Kind               | Snippet prefix                                                 |
-| -------------- | ------------------------- | ------------------ | -------------------------------------------------------------- |
-| Kustomize      | `kustomize.config.k8s.io` | `Kustomization`    | `kustomization`                                                |
-|                |                           | `Component`        | `component`                                                    |
-|                |                           | JSON 6902 Patch    | `json-patch`, `json-6902`                                      |
-| Argo Workflows | `argoproj.io`             | `Workflow`         | `argo-workflow`, `argo-wf`, `argo-wf-template-ref`             |
-|                |                           | `WorkflowTemplate` | `argo-workflowtemplate`, `argo-wftmpl`                         |
-|                |                           | `CronWrokflow`     | `argo-cronworkflow`, `argo-cronwf`, `argo-cronwf-template-ref` |
-| Argo CD        | `argoproj.io`             | `Application`      | `argocd-application`                                           |
-|                |                           | `Project`          | `argocd-project`                                               |
-
-<!-- | Grafana (Integreatly) | `integreatly.io` | `Grafana` <br /> `GrafanaDasboard` | -->
+| Project               | Group                     | Kind                | Snippet prefix                                                 |
+| --------------------- | ------------------------- | ------------------- | -------------------------------------------------------------- |
+| Kustomize             | `kustomize.config.k8s.io` | `Kustomization`     | `kustomization`                                                |
+|                       |                           | `Component`         | `component`                                                    |
+|                       |                           | JSON 6902 Patch     | `json-patch`, `json-6902`                                      |
+| Argo Workflows        | `argoproj.io`             | `Workflow`          | `argo-workflow`, `argo-wf`, `argo-wf-template-ref`             |
+|                       |                           | `WorkflowTemplate`  | `argo-workflowtemplate`, `argo-wftmpl`                         |
+|                       |                           | `CronWrokflow`      | `argo-cronworkflow`, `argo-cronwf`, `argo-cronwf-template-ref` |
+| Argo CD               | `argoproj.io`             | `Application`       | `argocd-application`                                           |
+|                       |                           | `Project`           | `argocd-project`                                               |
+| Grafana (Integreatly) | `integreatly.io`          | `Grafana`           | `grafana-instance`                                             |
+|                       |                           | `GrafanaDasboard`   | `grafana-dashboard`                                            |
+|                       |                           | `GrafanaDatasource` | `grafana-datasource`                                           |

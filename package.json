@@ -14,7 +14,8 @@
         "crd",
         "kustomize",
         "argo",
-        "argocd"
+        "argocd",
+        "grafana"
     ],
     "bugs": {
         "url": "https://github.com/tumido/crd-snippets/issues"
@@ -50,6 +51,10 @@
             {
                 "language": "yaml",
                 "path": "./snippets/argoproj.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/integreatly.json"
             }
         ]
     }
