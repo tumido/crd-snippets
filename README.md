@@ -15,8 +15,11 @@ YAML snippets for popular Kubernetes Custom Resources.
 
 Includes snippets for following CRDs:
 
-| Project | Group | Kind |
-| ------- | ----- | ---- |
+| Project   | Group                     | Kind            | Snippet prefix            |
+| --------- | ------------------------- | --------------- | ------------------------- |
+| Kustomize | `kustomize.config.k8s.io` | `Kustomization` | `kustomization`           |
+|           |                           | `Component`     | `component`               |
+|           |                           | JSON 6902 Patch | `json-patch`, `json-6902` |
 
 <!-- | Argo Workflows        | `argoproj.io`    | `Workflow` <br /> `WorkflowTemplate` <br /> `CronWrokflow` |
 | Argo CD               | `argoproj.io`    | `Application` <br /> `Project`                             |

@@ -1,0 +1,33 @@
+{
+    "Kustomize: Kustomization": {
+        "prefix": "kustomization",
+        "body": [
+            "---",
+            "apiVersion: kustomize.config.k8s.io/v1beta1",
+            "kind: Kustomization",
+            "",
+            "resources:",
+            "- $2"
+        ]
+    },
+    "Kustomize: Component": {
+        "prefix": "component",
+        "body": [
+            "---",
+            "apiVersion: kustomize.config.k8s.io/v1alpha1",
+            "kind: Component",
+            ""
+        ]
+    },
+    "Kustomize: JSON 6902 Patch": {
+        "prefix": [
+            "json-patch",
+            "json-6902"
+        ],
+        "body": [
+            "- op: ${1|add,remove,replace|}",
+            "  path: $2",
+            "  value: $3"
+        ]
+    }
+}

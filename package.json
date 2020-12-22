@@ -11,7 +11,8 @@
     },
     "keywords": [
         "kubernetes",
-        "crd"
+        "crd",
+        "kustomize"
     ],
     "bugs": {
         "url": "https://github.com/tumido/crd-snippets/issues"
@@ -42,7 +43,7 @@
         "snippets": [
             {
                 "language": "yaml",
-                "path": "./snippets/snippets.json"
+                "path": "./snippets/kustomize.json"
             }
         ]
     }
