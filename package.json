@@ -12,7 +12,9 @@
     "keywords": [
         "kubernetes",
         "crd",
-        "kustomize"
+        "kustomize",
+        "argo",
+        "argocd"
     ],
     "bugs": {
         "url": "https://github.com/tumido/crd-snippets/issues"
@@ -44,6 +46,10 @@
             {
                 "language": "yaml",
                 "path": "./snippets/kustomize.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/argoproj.json"
             }
         ]
     }

@@ -15,12 +15,15 @@ YAML snippets for popular Kubernetes Custom Resources.
 
 Includes snippets for following CRDs:
 
-| Project   | Group                     | Kind            | Snippet prefix            |
-| --------- | ------------------------- | --------------- | ------------------------- |
-| Kustomize | `kustomize.config.k8s.io` | `Kustomization` | `kustomization`           |
-|           |                           | `Component`     | `component`               |
-|           |                           | JSON 6902 Patch | `json-patch`, `json-6902` |
+| Project        | Group                     | Kind               | Snippet prefix                                                 |
+| -------------- | ------------------------- | ------------------ | -------------------------------------------------------------- |
+| Kustomize      | `kustomize.config.k8s.io` | `Kustomization`    | `kustomization`                                                |
+|                |                           | `Component`        | `component`                                                    |
+|                |                           | JSON 6902 Patch    | `json-patch`, `json-6902`                                      |
+| Argo Workflows | `argoproj.io`             | `Workflow`         | `argo-workflow`, `argo-wf`, `argo-wf-template-ref`             |
+|                |                           | `WorkflowTemplate` | `argo-workflowtemplate`, `argo-wftmpl`                         |
+|                |                           | `CronWrokflow`     | `argo-cronworkflow`, `argo-cronwf`, `argo-cronwf-template-ref` |
+| Argo CD        | `argoproj.io`             | `Application`      | `argocd-application`                                           |
+|                |                           | `Project`          | `argocd-project`                                               |
 
-<!-- | Argo Workflows        | `argoproj.io`    | `Workflow` <br /> `WorkflowTemplate` <br /> `CronWrokflow` |
-| Argo CD               | `argoproj.io`    | `Application` <br /> `Project`                             |
-| Grafana (Integreatly) | `integreatly.io` | `Grafana` <br /> `GrafanaDasboard`                         | -->
+<!-- | Grafana (Integreatly) | `integreatly.io` | `Grafana` <br /> `GrafanaDasboard` | -->

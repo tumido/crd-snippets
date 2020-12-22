@@ -1,0 +1,143 @@
+{
+    "Argo Workflows: Workflow": {
+        "prefix": [
+            "argo-workflow",
+            "argo-wf"
+        ],
+        "body": [
+            "---",
+            "apiVersion: argoproj.io/v1alpha1",
+            "kind: Workflow",
+            "metadata:",
+            "  generateName: $1-",
+            "spec:",
+            "  entrypoint: ${2:entrypoint}",
+            "  arguments:",
+            "    parameters: {}",
+            "  templates:",
+            "  - name: ${2:entrypoint}",
+            "    ${3|steps,dag,container,script|}:",
+            "      "
+        ]
+    },
+    "Argo Workflows: Workflow with workflowTemplateRef": {
+        "prefix": [
+            "argo-workflow-template-ref",
+            "argo-wf-template-ref"
+        ],
+        "body": [
+            "---",
+            "apiVersion: argoproj.io/v1alpha1",
+            "kind: Workflow",
+            "metadata:",
+            "  generateName: $1-",
+            "spec:",
+            "  workflowTemplateRef: ${2:template_name}"
+        ]
+    },
+    "Argo Workflows: CronWorkflow": {
+        "prefix": [
+            "argo-cronworkflow",
+            "argo-cronwf"
+        ],
+        "body": [
+            "---",
+            "apiVersion: argoproj.io/v1alpha1",
+            "kind: CronWorkflow",
+            "metadata:",
+            "  name: $1",
+            "  generateName: $1-",
+            "spec:",
+            "  schedule: \"${2:* * * * *}\"",
+            "  concurrencyPolicy: ${3|Allow,Replace|}",
+            "  workflowSpec:",
+            "    entrypoint: ${4:entrypoint}",
+            "    templates:",
+            "    - name: ${4:entrypoint}",
+            "      ${5|steps,dag,container,script|}:",
+            "        "
+        ]
+    },
+    "Argo Workflows: CronWorkflow with workflowTemplateRef": {
+        "prefix": [
+            "argo-cronworkflow-template-ref",
+            "argo-cronwf-template-ref"
+        ],
+        "body": [
+            "---",
+            "apiVersion: argoproj.io/v1alpha1",
+            "kind: CronWorkflow",
+            "metadata:",
+            "  name: $1",
+            "  generateName: $1-",
+            "spec:",
+            "  schedule: \"${2:* * * * *}\"",
+            "  concurrencyPolicy: ${3|Allow,Replace|}",
+            "  workflowTemplateRef: ${4:template_name}"
+        ]
+    },
+    "Argo Workflows: WorkflowTemplate": {
+        "prefix": [
+            "argo-workflowtemplate",
+            "argo-wftmpl"
+        ],
+        "body": [
+            "---",
+            "apiVersion: argoproj.io/v1alpha1",
+            "kind: WorkflowTemplate",
+            "metadata:",
+            "  name: $1",
+            "  generateName: $1-",
+            "spec:",
+            "  entrypoint: ${2:entrypoint}",
+            "  arguments:",
+            "    parameters: {}",
+            "  templates:",
+            "  - name: ${2:entrypoint}",
+            "    ${3|steps,dag,container,script|}:",
+            "      "
+        ]
+    },
+    "Argo CD Project": {
+        "prefix": "argocd-project",
+        "body": [
+            "---",
+            "apiVersion: argoproj.io/v1alpha1",
+            "kind: AppProject",
+            "metadata:",
+            "  name: $1",
+            "spec:",
+            "  description: $2",
+            "  sourceRepos:",
+            "  - ${3:'*'}",
+            "  destinations:",
+            "  - namespace: ${4:'*'}",
+            "    server: ${5:'*'}"
+        ]
+    },
+    "Argo CD Application": {
+        "prefix": "argocd-application",
+        "body": [
+            "---",
+            "apiVersion: argoproj.io/v1alpha1",
+            "kind: Application",
+            "metadata:",
+            "  name: $1",
+            "spec:",
+            "  project: $2",
+            "  source:",
+            "    repoURL: $3",
+            "    targetRevision: ${4:HEAD}",
+            "    path: $5",
+            "  destination:",
+            "    server: ${6:https://kubernetes.default.svc}",
+            "    namespace: $7",
+            "  syncPolicy:",
+            "    automated:",
+            "      prune: true",
+            "      selfHeal: true",
+            "    syncOptions:",
+            "    - Validate=false"
+        ]
+    }
+}
