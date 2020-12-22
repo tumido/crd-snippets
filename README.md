@@ -15,7 +15,7 @@ YAML snippets for popular Kubernetes Custom Resources. If you'd like to see snip
 1. Snippets for native Kubernetes resouces, choose which fits your needs the best:
    - [`ipedrazas.kubernetes-snippets`](https://marketplace.visualstudio.com/items?itemName=ipedrazas.kubernetes-snippets)
    - [`lunuan.kubernetes-templates`](https://marketplace.visualstudio.com/items?itemName=lunuan.kubernetes-templates)
-2. [`redhat.vscode-yaml`](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - provides intellisense on YAML schemes. That means, once the `kind` and `apigroup` is defined, this Extension can offer completions for schemes available at [schemastore.org](https://www.schemastore.org/json/)
+2. [`redhat.vscode-yaml`](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - provides intellisense on YAML schemes. That means, once the `kind` and `apiVersion` is defined, this Extension can offer completions for schemas available at [schemastore.org](https://www.schemastore.org/json/)
 
 ## Features
 
