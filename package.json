@@ -1,7 +1,25 @@
 {
     "name": "crd-snippets",
-    "displayName": "crd-snippets",
+    "displayName": "Kubernetes CRD snippets",
     "description": "Snippets for popular Kubernetes Custom Resources",
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://github.com/tumido/crd-snippets",
+    "publisher": "tumido",
+    "author": {
+        "name": "Tom Coufal",
+        "url": "https://github.com/tumido"
+    },
+    "keywords": [
+        "kubernetes",
+        "crd"
+    ],
+    "bugs": {
+        "url": "https://github.com/tumido/crd-snippets/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tumido/crd-snippets.git"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.51.0"
@@ -9,6 +27,17 @@
     "categories": [
         "Snippets"
     ],
+    "qna": "https://github.com/tumido/crd-snippets/issues",
+    "extensionKind": [
+        "ui",
+        "workspace"
+    ],
+    "icon": "docs/assets/icon.png",
+    "galleryBanner": {
+        "color": "#191919",
+        "theme": "dark"
+    },
+    "private": true,
     "contributes": {
         "snippets": [
             {
