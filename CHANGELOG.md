@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/tumido/crd-snippets/compare/v1.0.0...v1.0.1) (2021-01-12)
+
+
+### Bug Fixes
+
+* Remove activationEvents since there's no JS/TS to activate ([89b68d8](https://github.com/tumido/crd-snippets/commit/89b68d8577d7a1cf080af2d049e26e7f16fb44ca))
+
 # 1.0.0 (2020-12-22)
 
 
