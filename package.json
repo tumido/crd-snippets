@@ -42,9 +42,6 @@
         "theme": "dark"
     },
     "private": true,
-    "activationEvents": [
-        "onLanguage:yaml"
-    ],
     "contributes": {
         "snippets": [
             {
