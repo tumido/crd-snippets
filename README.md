@@ -130,5 +130,25 @@ Includes snippets for following CRDs:
          <td><code>OperatorSource</code></td>
          <td><code>openshift-operator-source</code></td>
       </tr>
+      <tr>
+         <td rowspan=2>Spark by <a href="https://github.com/radanalyticsio/spark-operator">Radanalytics.io</a></td>
+         <td rowspan=2><code>radanalytics.io/v1</code></td>
+         <td><code>SparkCluster</code></td>
+         <td><code>radanalyticsio-spark-cluster<br />spark-cluster</code></td>
+      </tr>
+      <tr>
+         <td><code>SparkApplication</code></td>
+         <td><code>radanalyticsio-spark-application</td>
+      </tr>
+      <tr>
+         <td rowspan=2>Spark by <a href="https://github.com/GoogleCloudPlatform/spark-on-k8s-operator"><code>spark-on-k8s-operator</code></a></td>
+         <td rowspan=2><code>sparkoperator.k8s.io/v1beta1</code></td>
+         <td><code>ScheduledSparkApplication</code></td>
+         <td><code>spark-on-k8s-operator-scheduled-spark-application<br />scheduled-spark-application</code></td>
+      </tr>
+      <tr>
+         <td><code>SparkApplication</code></td>
+         <td><code>spark-on-k8s-operator-spark-application</td>
+      </tr>
    </tbody>
 </table>
