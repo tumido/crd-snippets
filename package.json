@@ -46,11 +46,11 @@
         "snippets": [
             {
                 "language": "yaml",
-                "path": "./snippets/kustomize.json"
+                "path": "./snippets/argoproj.json"
             },
             {
                 "language": "yaml",
-                "path": "./snippets/argoproj.json"
+                "path": "./snippets/kustomize.json"
             },
             {
                 "language": "yaml",
