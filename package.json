@@ -50,6 +50,10 @@
             },
             {
                 "language": "yaml",
+                "path": "./snippets/kubeflow.json"
+            },
+            {
+                "language": "yaml",
                 "path": "./snippets/kustomize.json"
             },
             {
