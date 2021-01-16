@@ -1,3 +1,18 @@
+# [1.1.0](https://github.com/tumido/crd-snippets/compare/v1.0.1...v1.1.0) (2021-01-16)
+
+
+### Bug Fixes
+
+* Array indentation in all snippents ([e7bf33f](https://github.com/tumido/crd-snippets/commit/e7bf33fef68096fc1cf813d57da3e7da4da885cf))
+
+
+### Features
+
+* Add basic Openshift snippets ([3b3c65f](https://github.com/tumido/crd-snippets/commit/3b3c65f3f1b671d5e65b471dac27c38554da3783))
+* Add KfDef for Kubeflow and ODH ([d4ebfd6](https://github.com/tumido/crd-snippets/commit/d4ebfd63cb38e309286bb6fd125fea2585227f12))
+* Add OperatorSource for Operator Marketplace ([f1e30ff](https://github.com/tumido/crd-snippets/commit/f1e30ff8a77753d049f7bddacad49192ecfb1de6))
+* Add Radanalytics.io and spark-on-k8s Spark ([7a4dd7b](https://github.com/tumido/crd-snippets/commit/7a4dd7b5804d5f7cbcb70549bde879fe3fef13c1))
+
 ## [1.0.1](https://github.com/tumido/crd-snippets/compare/v1.0.0...v1.0.1) (2021-01-12)
 
 
