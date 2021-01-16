@@ -55,6 +55,10 @@
             {
                 "language": "yaml",
                 "path": "./snippets/integreatly.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/openshift.json"
             }
         ]
     },

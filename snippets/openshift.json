@@ -1,0 +1,169 @@
+{
+    "OpenShift: DeploymentConfig": {
+        "prefix": [
+            "openshift-deploymentconfig",
+            "openshift-deployment-config",
+            "openshift-dc"
+        ],
+        "body": [
+            "---",
+            "apiVersion: apps.openshift.io/v1",
+            "kind: DeploymentConfig",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  replicas: 1",
+            "  selector:",
+            "    matchLabels:",
+            "      app: ${1:name}",
+            "  template:",
+            "    metadata:",
+            "      labels:",
+            "        app: ${1:name}",
+            "    spec:",
+            "      containers:",
+            "        - name: ${1:name}",
+            "          image: ${2:image}",
+            "          resources:",
+            "            limits:",
+            "              memory: 128Mi",
+            "              cpu: 500m",
+            "          ports:",
+            "            - containerPort: <Port>",
+            "  triggers:",
+            "    - type: ConfigChange",
+            "    - type: ImageChange",
+            "      imageChangeParams:",
+            "        automatic: true",
+            "        containerNames:",
+            "          - ${1:myapp}",
+            "        from:",
+            "          kind: ImageStreamTag",
+            "          name: ${2:image}:latest",
+            "  strategy:",
+            "    type: Rolling"
+        ]
+    },
+    "OpenShift: BuildConfig": {
+        "prefix": [
+            "openshift-buildconfig",
+            "openshift-build-config",
+            "openshift-bc",
+        ],
+        "body": [
+            "---",
+            "apiVersion: build.openshift.io/v1",
+            "kind: BuildConfig",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  output:",
+            "    to:",
+            "      kind: ImageStreamTag",
+            "      name: ${1:name}:latest",
+            "  source:",
+            "    type: ${2|Git,Dockerfile,Binary|}",
+            "    sourceSecret:",
+            "      name: ''",
+            "  strategy:",
+            "    type: ${3|Source,Docker,JenkinsPipeline,Custom|}",
+            "  triggers:",
+            "    - type: ConfigChange",
+            "    - type: ${4|Generic,GitHub,GitLab|}",
+            "      ${5|generic,github,gitlab|}:",
+            "        secret: ${5:secret}"
+        ]
+    },
+    "Openshift: ImageStream": {
+        "prefix": [
+            "openshift-imagestream",
+            "openshift-image-stream",
+            "openshift-is"
+        ],
+        "body": [
+            "---",
+            "kind: ImageStream",
+            "apiVersion: image.openshift.io/v1",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  lookupPolicy:",
+            "    local: true",
+            "  tags:",
+            "    - name: latest",
+            "      from:",
+            "        kind: DockerImage",
+            "        name: ${2:image url}",
+            "      importPolicy:",
+            "        scheduled: true"
+        ]
+    },
+    "Openshift: Subscription": {
+        "prefix": [
+            "openshift-subscription"
+        ],
+        "body": [
+            "---",
+            "apiVersion: operators.coreos.com/v1alpha1",
+            "kind: Subscription",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  channel: ${2:channel}",
+            "  installPlanApproval: ${3|Automatic,Manual|}",
+            "  name: ${1:name}",
+            "  source: ${4:source}",
+            "  sourceNamespace: ${5:operators}",
+            "  startingCSV: ${6:csv}"
+        ]
+    },
+    "Openshift: Project": {
+        "prefix": [
+            "openshift-project"
+        ],
+        "body": [
+            "---",
+            "apiVersion: project.openshift.io/v1",
+            "kind: Project",
+            "metadata:",
+            "  annotations:",
+            "    openshift.io/description: ${2:description}",
+            "    openshift.io/display-name: ${3:display name}",
+            "    openshift.io/requester: ${4:requester}",
+            "  name: ${1:name}",
+            "spec: {}"
+        ]
+    },
+    "Openshift: Group": {
+        "prefix": [
+            "openshift-group"
+        ],
+        "body": [
+            "---",
+            "apiVersion: user.openshift.io/v1",
+            "kind: Group",
+            "metadata:",
+            "  name: ${1:name}",
+            "users:",
+            "  - $0"
+        ]
+    },
+    "Openshift: Route": {
+        "prefix": [
+            "openshift-route"
+        ],
+        "body": [
+            "---",
+            "apiVersion: route.openshift.io/v1",
+            "kind: Route",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  to:",
+            "    kind: Service",
+            "    name: ${1:name}",
+            "  port:",
+            "    targetPort: ${2:port}"
+        ]
+    }
+}

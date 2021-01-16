@@ -83,5 +83,41 @@ Includes snippets for following CRDs:
          <td><code>GrafanaDatasource</code></td>
          <td><code>grafana-datasource</code></td>
       </tr>
+      <tr>
+         <td rowspan=7><a href="https://docs.openshift.com/">Openshift</a></td>
+         <td><code>apps.openshift.io/v1</code></td>
+         <td><code>DeploymentConfig</code></td>
+         <td><code>openshift-deploymentconfig<br />openshift-deployment-config<br />openshift-dc</code></td>
+      </tr>
+      <tr>
+         <td><code>build.openshift.io/v1</code></td>
+         <td><code>BuildConfig</code></td>
+         <td><code>openshift-buildconfig<br />openshift-build-config<br />openshift-bc</code></td>
+      </tr>
+      <tr>
+         <td><code>image.openshift.io/v1</code></td>
+         <td><code>ImageStream</code></td>
+         <td><code>openshift-imagestream<br />openshift-image-stream<br />openshift-is</code></td>
+      </tr>
+      <tr>
+         <td><code>project.openshift.io/v1</code></td>
+         <td><code>Project</code></td>
+         <td><code>openshift-project</code></td>
+      </tr>
+      <tr>
+         <td><code>user.openshift.io/v1</code></td>
+         <td><code>Group</code></td>
+         <td><code>openshift-group</code></td>
+      </tr>
+      <tr>
+         <td><code>route.openshift.io/v1</code></td>
+         <td><code>Route</code></td>
+         <td><code>openshift-route</code></td>
+      </tr>
+      <tr>
+         <td><code>operators.coreos.com/v1alpha1</code></td>
+         <td><code>Subscription</code></td>
+         <td><code>openshift-subscription</code></td>
+      </tr>
    </tbody>
 </table>
