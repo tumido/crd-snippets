@@ -1,0 +1,126 @@
+{
+    "Radanalytics: SparkCluster": {
+        "prefix": [
+            "radanalyticsio-spark-cluster",
+            "spark-cluster"
+        ],
+        "body": [
+            "---",
+            "apiVersion: radanalytics.io/v1",
+            "kind: SparkCluster",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  worker:",
+            "    instances: \"${2:1}\"",
+            "    memoryRequest: 512Mi",
+            "    memoryLimit: 2Gi",
+            "    cpuRequest: 200m",
+            "    cpuLimit: \"2\"",
+            "  master:",
+            "    instances: \"${3:1}\"",
+            "    memoryRequest: 512Mi",
+            "    memoryLimit: 2Gi",
+            "    cpuRequest: 200m",
+            "    cpuLimit: \"2\"",
+            "  customImage: ${4:image name}",
+            "  env:",
+            "    - name: SPARK_METRICS_ON",
+            "      value: prometheus"
+        ]
+    },
+    "Radanalytics: SparkApplication": {
+        "prefix": [
+            "radanalyticsio-spark-application",
+            "spark-applications"
+        ],
+        "body": [
+            "---",
+            "apiVersion: radanalytics.io/v1",
+            "kind: SparkApplication",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  mainApplicationFile: ${2:local:///opt/spark/examples/jars/spark-examples_2.11-2.3.0.jar}",
+            "  mainClass: ${3:org.apache.spark.examples.SparkPi}"
+        ]
+    },
+    "Spark on k8s: SparkApplication": {
+        "prefix": [
+            "spark-on-k8s-operator-spark-application"
+        ],
+        "body": [
+            "---",
+            "apiVersion: sparkoperator.k8s.io/v1beta1",
+            "kind: SparkApplication",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  type: ${2|Python,Scala,Java,R|}",
+            "  mode: ${3|cluster,client,in-cluster-client|}",
+            "  image: '${4:gcr.io/spark-operator/spark-py:v2.4.0}'",
+            "  imagePullPolicy: Always",
+            "  mainApplicationFile: '${5:local:///opt/spark/examples/jars/spark-examples_2.11-2.4.0.jar'}",
+            "  mainClass: ${6:org.apache.spark.examples.SparkPi}",
+            "  sparkVersion: ${7:2.4.0}",
+            "  restartPolicy:",
+            "    type: OnFailure",
+            "    onFailureRetries: 3",
+            "    onFailureRetryInterval: 10",
+            "    onSubmissionFailureRetries: 5",
+            "    onSubmissionFailureRetryInterval: 20",
+            "  driver:",
+            "    cores: 0.1",
+            "    coreLimit: 200m",
+            "    memory: 512m",
+            "    labels:",
+            "      version: 2.4.0",
+            "    serviceAccount: spark",
+            "  executor:",
+            "    cores: 1",
+            "    instances: 1",
+            "    memory: 512m",
+            "    labels:",
+            "      version: 2.4.0",
+        ]
+    },
+    "Spark on k8s: ScheduledSparkApplication": {
+        "prefix": [
+            "spark-on-k8s-operator-scheduled-spark-application",
+            "scheduled-spark-application"
+        ],
+        "body": [
+            "---",
+            "apiVersion: sparkoperator.k8s.io/v1beta1",
+            "kind: ScheduledSparkApplication",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  schedule: '${2:@every 5m}'",
+            "  concurrencyPolicy: Allow",
+            "  template:",
+            "    type: ${2|Python,Scala,Java,R|}",
+            "    mode: ${3|cluster,client,in-cluster-client|}",
+            "    image: '${4:gcr.io/spark-operator/spark-py:v2.4.0}'",
+            "    imagePullPolicy: Always",
+            "    mainApplicationFile: '${5:local:///opt/spark/examples/jars/spark-examples_2.11-2.4.0.jar'}",
+            "    mainClass: ${6:org.apache.spark.examples.SparkPi}",
+            "    sparkVersion: ${7:2.4.0}",
+            "    restartPolicy:",
+            "      type: Never",
+            "    driver:",
+            "      cores: 0.1",
+            "      coreLimit: 200m",
+            "      memory: 512m",
+            "      labels:",
+            "        version: 2.4.0",
+            "      serviceAccount: spark",
+            "    executor:",
+            "      cores: 1",
+            "      instances: 1",
+            "      memory: 512m",
+            "      labels:",
+            "        version: 2.4.0",
+        ]
+    }
+}
