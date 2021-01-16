@@ -32,20 +32,6 @@ Includes snippets for following CRDs:
    </thead>
    <tbody>
       <tr>
-         <td rowspan=3><a href="https://kustomize.io/">Kustomize</a></td>
-         <td rowspan=3><code>kustomize.config.k8s.io</code></td>
-         <td><code>Kustomization</code></td>
-         <td><code>kustomization</code></td>
-      </tr>
-      <tr>
-         <td><code>Component</code></td>
-         <td><code>component</code></td>
-      </tr>
-      <tr>
-         <td>Json 6902 Patch</td>
-         <td><code>json-patch</code><br /><code>json-6902</code></td>
-      </tr>
-      <tr>
          <td rowspan=3><a href="https://argoproj.github.io/argo/">Argo Workflows</a></td>
          <td rowspan=3><code>argoproj.io</code></td>
          <td><code>Workflow</code></td>
@@ -82,6 +68,20 @@ Includes snippets for following CRDs:
       <tr>
          <td><code>GrafanaDatasource</code></td>
          <td><code>grafana-datasource</code></td>
+      </tr>
+      <tr>
+         <td rowspan=3><a href="https://kustomize.io/">Kustomize</a></td>
+         <td rowspan=3><code>kustomize.config.k8s.io</code></td>
+         <td><code>Kustomization</code></td>
+         <td><code>kustomization</code></td>
+      </tr>
+      <tr>
+         <td><code>Component</code></td>
+         <td><code>component</code></td>
+      </tr>
+      <tr>
+         <td>Json 6902 Patch</td>
+         <td><code>json-patch</code><br /><code>json-6902</code></td>
       </tr>
       <tr>
          <td><a href="https://www.kubeflow.org/">Kubeflow</a><br /><a href="https://opendatahub.io/">Open Data Hub</a></td>
