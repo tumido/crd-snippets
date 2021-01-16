@@ -1,0 +1,20 @@
+{
+    "Kubeflow: KfDef": {
+        "prefix": "kubeflow-kfdef",
+        "body": [
+            "---",
+            "apiVersion: kfdef.apps.kubeflow.org/v1",
+            "kind: KfDef",
+            "metadata:",
+            "  namespace: ${1:name}",
+            "spec:",
+            "  applications: []",
+            "  repos:",
+            "    - name: manifests",
+            "      uri: https://github.com/kubeflow/manifests/archive/master.tar.gz",
+            "    - name: odh",
+            "      uri: https://github.com/odh-manifests/odh-manifests/archive/master.tar.gz",
+            "  version: master"
+        ]
+    }
+}

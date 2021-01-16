@@ -22,7 +22,7 @@
             "  dashboardLabelSelector:",
             "    - matchExpressions:",
             "        - ${2:{ key: app, operator: In, values: [grafana] }}"
-        ],
+        ]
     },
     "Integreatly: Grafana Dashboard": {
         "prefix": "grafana-dashboard",
@@ -50,5 +50,5 @@
             "  datasources:",
             "    - name: "
         ]
-    },
+    }
 }
