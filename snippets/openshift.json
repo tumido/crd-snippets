@@ -165,5 +165,23 @@
             "  port:",
             "    targetPort: ${2:port}"
         ]
+    },
+    "Openshift: OperatorSource": {
+        "prefix": [
+            "openshift-operator-source"
+        ],
+        "body": [
+            "---",
+            "apiVersion: operators.coreos.com/v1",
+            "kind: OperatorSource",
+            "metadata:",
+            "  name: ${1:name}",
+            "spec:",
+            "  type: appregistry",
+            "  endpoint: ${2:https://quay.io/}",
+            "  registryNamespace: ${3:namespace}",
+            "  displayName: ${4:display name}",
+            "  publisher: ${5:author}"
+        ]
     }
 }

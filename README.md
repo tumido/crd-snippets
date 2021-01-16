@@ -90,7 +90,7 @@ Includes snippets for following CRDs:
          <td><code>kubeflow-kfdef<br />odh-kfdef</code></td>
       </tr>
       <tr>
-         <td rowspan=7><a href="https://docs.openshift.com/">Openshift</a></td>
+         <td rowspan=8><a href="https://docs.openshift.com/">Openshift</a></td>
          <td><code>apps.openshift.io/v1</code></td>
          <td><code>DeploymentConfig</code></td>
          <td><code>openshift-deploymentconfig<br />openshift-deployment-config<br />openshift-dc</code></td>
@@ -124,6 +124,11 @@ Includes snippets for following CRDs:
          <td><code>operators.coreos.com/v1alpha1</code></td>
          <td><code>Subscription</code></td>
          <td><code>openshift-subscription</code></td>
+      </tr>
+      <tr>
+         <td><code>operators.coreos.com/v1</code></td>
+         <td><code>OperatorSource</code></td>
+         <td><code>openshift-operator-source</code></td>
       </tr>
    </tbody>
 </table>
