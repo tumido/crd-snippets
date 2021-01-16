@@ -84,6 +84,12 @@ Includes snippets for following CRDs:
          <td><code>grafana-datasource</code></td>
       </tr>
       <tr>
+         <td><a href="https://www.kubeflow.org/">Kubeflow</a><br /><a href="https://opendatahub.io/">Open Data Hub</a></td>
+         <td><code>kfdef.apps.kubeflow.org/v1</code></td>
+         <td><code>KfDef</code></td>
+         <td><code>kubeflow-kfdef<br />odh-kfdef</code></td>
+      </tr>
+      <tr>
          <td rowspan=7><a href="https://docs.openshift.com/">Openshift</a></td>
          <td><code>apps.openshift.io/v1</code></td>
          <td><code>DeploymentConfig</code></td>
