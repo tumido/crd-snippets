@@ -7,7 +7,7 @@
             "kind: Kustomization",
             "",
             "resources:",
-            "- $2"
+            "  - $2"
         ]
     },
     "Kustomize: Component": {

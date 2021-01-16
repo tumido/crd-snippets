@@ -15,9 +15,9 @@
             "  arguments:",
             "    parameters: {}",
             "  templates:",
-            "  - name: ${2:entrypoint}",
-            "    ${3|steps,dag,container,script|}:",
-            "      "
+            "    - name: ${2:entrypoint}",
+            "      ${3|steps,dag,container,script|}:",
+            "        "
         ]
     },
     "Argo Workflows: Workflow with workflowTemplateRef": {
@@ -53,9 +53,9 @@
             "  workflowSpec:",
             "    entrypoint: ${4:entrypoint}",
             "    templates:",
-            "    - name: ${4:entrypoint}",
-            "      ${5|steps,dag,container,script|}:",
-            "        "
+            "      - name: ${4:entrypoint}",
+            "        ${5|steps,dag,container,script|}:",
+            "          "
         ]
     },
     "Argo Workflows: CronWorkflow with workflowTemplateRef": {
@@ -93,9 +93,9 @@
             "  arguments:",
             "    parameters: {}",
             "  templates:",
-            "  - name: ${2:entrypoint}",
-            "    ${3|steps,dag,container,script|}:",
-            "      "
+            "    - name: ${2:entrypoint}",
+            "      ${3|steps,dag,container,script|}:",
+            "        "
         ]
     },
     "Argo CD Project": {
@@ -109,10 +109,10 @@
             "spec:",
             "  description: $2",
             "  sourceRepos:",
-            "  - ${3:'*'}",
+            "    - ${3:'*'}",
             "  destinations:",
-            "  - namespace: ${4:'*'}",
-            "    server: ${5:'*'}"
+            "    - namespace: ${4:'*'}",
+            "      server: ${5:'*'}"
         ]
     },
     "Argo CD Application": {
@@ -137,7 +137,7 @@
             "      prune: true",
             "      selfHeal: true",
             "    syncOptions:",
-            "    - Validate=false"
+            "      - Validate=false"
         ]
     }
 }
