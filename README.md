@@ -32,7 +32,7 @@ Includes snippets for following CRDs:
    </thead>
    <tbody>
       <tr>
-         <td rowspan=3><a href="https://argoproj.github.io/argo/">Argo Workflows</a></td>
+         <td rowspan=3><a href="https://argoproj.github.io/argo-workflows/">Argo Workflows</a></td>
          <td rowspan=3><code>argoproj.io</code></td>
          <td><code>Workflow</code></td>
          <td><code>argo-workflow</code><br /><code>argo-wf</code><br /><code>argo-wf-template-ref</code></td>
@@ -46,7 +46,7 @@ Includes snippets for following CRDs:
          <td><code>argo-cronworkflow</code><br /><code>argo-cronwf</code><br /><code>argo-cronwf-template-ref</code></td>
       </tr>
       <tr>
-         <td rowspan=2><a href="https://argoproj.github.io/argo-cd">Argo CD</a></td>
+         <td rowspan=2><a href="https://argo-cd.readthedocs.io/en/stable/">Argo CD</a></td>
          <td rowspan=2><code>argoproj.io</code></td>
          <td><code>Application</code></td>
          <td><code>argocd-application</code></td>
