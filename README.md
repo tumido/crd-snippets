@@ -46,10 +46,14 @@ Includes snippets for following CRDs:
          <td><code>argo-cronworkflow</code><br /><code>argo-cronwf</code><br /><code>argo-cronwf-template-ref</code></td>
       </tr>
       <tr>
-         <td rowspan=2><a href="https://argo-cd.readthedocs.io/en/stable/">Argo CD</a></td>
-         <td rowspan=2><code>argoproj.io</code></td>
+         <td rowspan=3><a href="https://argo-cd.readthedocs.io/en/stable/">Argo CD</a></td>
+         <td rowspan=3><code>argoproj.io</code></td>
          <td><code>Application</code></td>
          <td><code>argocd-application</code></td>
+      </tr>
+      <tr>
+         <td><code>ApplicationSet</code></td>
+         <td><code>argocd-application-set</code></td>
       </tr>
       <tr>
          <td><code>Project</code></td>
