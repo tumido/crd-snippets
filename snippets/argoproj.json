@@ -139,5 +139,36 @@
             "    syncOptions:",
             "      - Validate=false"
         ]
+    },
+    "Argo CD ApplicationSet":{
+        "prefix": "argocd-application-set",
+        "body": [
+        "---",
+        "apiVersion: argoproj.io/v1alpha1",
+        "kind: ApplicationSet",
+        "  name: $1",
+        "spec:",
+        "  generators:",
+        "    - <Generator-Type>",
+        "template:",
+        "  metadata:",
+        "    name: $2",
+        "  spec:",
+        "    project: $3",
+        "    source:",
+        "      repoURL: $4",
+        "      targetRevision: ${5:HEAD}",
+        "      path: $6",
+        "    destination:",
+        "      server: ${7:https://kubernetes.default.svc}",
+        "      namespace $8",
+        "    syncPolicy:",
+        "      automated:",
+        "        prune: true",
+        "        selfHeal: true",
+        "      syncOptions:",
+        "        - Validate=false"
+
+        ]
     }
 }
