@@ -73,8 +73,8 @@
     "devDependencies": {
         "@semantic-release/changelog": "6.0.3",
         "@semantic-release/git": "10.0.1",
-        "@semantic-release/github": "9.0.4",
-        "semantic-release": "21.1.1"
+        "@semantic-release/github": "10.0.2",
+        "semantic-release": "23.0.6"
     },
     "release": {
         "branches": "master",
