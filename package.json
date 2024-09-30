@@ -67,6 +67,10 @@
             {
                 "language": "yaml",
                 "path": "./snippets/spark.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/flux2.json"
             }
         ]
     },
