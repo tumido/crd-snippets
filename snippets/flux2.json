@@ -1,0 +1,126 @@
+{
+    "Flux2 HelmRelease": {
+        "prefix": [
+            "flux2-helmrelease",
+            "helmrelease"
+        ],
+        "body": [
+            "---",
+            "apiVersion: helm.toolkit.fluxcd.io/v2",
+            "kind: HelmRelease",
+            "metadata:",
+            "  name: ${1:release-name}",
+            "  namespace: ${2:flux-system}",
+            "spec:",
+            "  interval: ${3:5m}",
+            "  chart:",
+            "    spec:",
+            "      chart: ${4:chart-name}",
+            "      version: ${5:chart-version}",
+            "      sourceRef:",
+            "        kind: HelmRepository",
+            "        name: ${6:repo-name}",
+            "        namespace: ${7:flux-system}"
+        ],
+        "description": "Creates a Flux2 HelmRelease resource"
+    },
+    "Flux2 Kustomization": {
+        "prefix": [
+            "flux2-kustomization",
+            "kustomization"
+        ],
+        "body": [
+            "---",
+            "apiVersion: kustomize.toolkit.fluxcd.io/v1",
+            "kind: Kustomization",
+            "metadata:",
+            "  name: ${1:kustomization-name}",
+            "  namespace: ${2:flux-system}",
+            "spec:",
+            "  interval: ${3:10m}",
+            "  path: ${4:./kustomize}",
+            "  prune: ${5:true}",
+            "  sourceRef:",
+            "    kind: ${6:GitRepository}",
+            "    name: ${7:source-name}"
+        ],
+        "description": "Creates a Flux2 Kustomization resource"
+    },
+    "Flux2 HelmRepository": {
+        "prefix": [
+            "flux2-helmrepository",
+            "helmrepository"
+        ],
+        "body": [
+            "---",
+            "apiVersion: source.toolkit.fluxcd.io/v1",
+            "kind: HelmRepository",
+            "metadata:",
+            "  name: ${1:repo-name}",
+            "  namespace: ${2:flux-system}",
+            "spec:",
+            "  interval: ${3:1h}",
+            "  url: ${4:https://charts.example.com}"
+        ],
+        "description": "Creates a Flux2 HelmRepository resource"
+    },
+    "Flux2 HelmRepository OCI": {
+        "prefix": [
+            "flux2-helmrepository-oci",
+            "helmrepository-oci"
+        ],
+        "body": [
+            "---",
+            "apiVersion: source.toolkit.fluxcd.io/v1",
+            "kind: HelmRepository",
+            "metadata:",
+            "  name: ${1:repo-name}",
+            "  namespace: ${2:flux-system}",
+            "spec:",
+            "  interval: ${3:1h}",
+            "  type: oci",
+            "  url: ${4:oci://registry.example.com/charts}"
+        ],
+        "description": "Creates a Flux2 HelmRepository resource for OCI registries"
+    },
+    "Flux2 GitRepository": {
+        "prefix": [
+            "flux2-gitrepository",
+            "gitrepository"
+        ],
+        "body": [
+            "---",
+            "apiVersion: source.toolkit.fluxcd.io/v1",
+            "kind: GitRepository",
+            "metadata:",
+            "  name: ${1:repo-name}",
+            "  namespace: ${2:flux-system}",
+            "spec:",
+            "  interval: ${3:5m}",
+            "  url: ${4:https://github.com/example/repo.git}",
+            "  ref:",
+            "    branch: ${5:main}"
+        ],
+        "description": "Creates a Flux2 GitRepository resource"
+    },
+    "Flux2 Bucket": {
+        "prefix": [
+            "flux2-bucket",
+            "bucket"
+        ],
+        "body": [
+            "---",
+            "apiVersion: source.toolkit.fluxcd.io/v1",
+            "kind: Bucket",
+            "metadata:",
+            "  name: ${1:bucket-name}",
+            "  namespace: ${2:flux-system}",
+            "spec:",
+            "  interval: ${3:5m}",
+            "  provider: ${4|generic,aws,azure,gcp|}",
+            "  bucketName: ${5:my-bucket}",
+            "  endpoint: ${6:s3.amazonaws.com}"
+        ],
+        "description": "Creates a Flux2 Bucket resource"
+    }
+}
