@@ -3,10 +3,13 @@ name: Release
 on:
   repository_dispatch:
     types: [trigger-release]
+  workflow_dispatch: {}
+
 
 jobs:
   notify-start:
     name: Notify when started
+    if: github.event.client_payload.github.event.issue.number && github.event.client_payload.commentId
     runs-on: ubuntu-latest
     steps:
       - name: Update comment
@@ -34,7 +37,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build VSIX extension file
         uses: HaaLeo/publish-vscode-extension@v1
@@ -51,7 +54,7 @@ jobs:
 
       - name: Get release
         id: release
-        uses: jossef/action-latest-release-info@v1.2.2
+        uses: pepoviola/action-latest-release-info@v0.0.2
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
@@ -105,6 +108,7 @@ jobs:
 
   notify-end:
     name: Notify when finished
+    if: github.event.client_payload.github.event.issue.number && github.event.client_payload.commentId
     needs: [publish-vs, publish-open-vsx]
     runs-on: ubuntu-latest
     steps:

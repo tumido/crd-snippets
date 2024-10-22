@@ -31,7 +31,7 @@ jobs:
         if: ${{ !steps.access.outcome == 'failure' && steps.releaseLabel.outcome == 'success' }}
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: |
+          comment: |
             ⛔ You're not a maintainer @${{ github.event.issue.user.id }}. You can't trigger a release.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -65,7 +65,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build VSIX extension file
         uses: HaaLeo/publish-vscode-extension@v1
