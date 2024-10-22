@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/tumido/crd-snippets/compare/v1.1.0...v1.2.0) (2024-10-22)
+
+
+### Features
+
+* add multiple FluxCD resources and ArgoCD ApplicationSet ([7de90e9](https://github.com/tumido/crd-snippets/commit/7de90e9ac9f43c21edc661bd4dea3c14b98b9527))
+
 # [1.1.0](https://github.com/tumido/crd-snippets/compare/v1.0.1...v1.1.0) (2021-01-16)
 
 

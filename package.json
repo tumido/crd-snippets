@@ -24,7 +24,7 @@
         "type": "git",
         "url": "https://github.com/tumido/crd-snippets.git"
     },
-    "version": "1.1.0",
+    "version": "1.2.0",
     "engines": {
         "vscode": "^1.51.0"
     },
