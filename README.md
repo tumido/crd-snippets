@@ -60,6 +60,30 @@ Includes snippets for following CRDs:
          <td><code>argocd-project</code></td>
       </tr>
       <tr>
+         <td rowspan=5><a href="https://fluxcd.io/">Flux</a></td>
+         <td rowspan=3><code>source.toolkit.fluxcd.io</code></td>
+         <td><code>GitRepository</code></td>
+         <td><code>flux2-gitrepository</code><br/><code>gitrepository</code></td>
+      </tr>
+      <tr>
+         <td><code>HelmRepository</code></td>
+         <td><code>flux2-helmrepository</code><br/><code>helmrepository</code><br/><code>flux2-helmrepository-oci</code><br/><code>helmrepository-oci</code></td>
+      </tr>
+      <tr>
+         <td><code>Bucket</code></td>
+         <td><code>flux2-bucket</code><br/><code>bucket</code></td>
+      </tr>
+      <tr>
+         <td><code>kustomize.toolkit.fluxcd.io</code></td>
+         <td><code>Kustomization</code></td>
+         <td><code>flux2-kustomization</code><br/><code>kustomization</code></td>
+      </tr>
+      <tr>
+         <td><code>helm.toolkit.fluxcd.io</code></td>
+         <td><code>HelmRelease</code></td>
+         <td><code>flux2-helmrelease</code><br/><code>helmrelease</code></td>
+      </tr>
+      <tr>
          <td rowspan=3><a href="https://github.com/integr8ly/grafana-operator">Grafana (Integreatly)</a></td>
          <td rowspan=3><code>integreatly.io</code></td>
          <td><code>Grafana</code></td>
