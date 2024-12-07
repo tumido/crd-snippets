@@ -149,6 +149,8 @@
         "metadata:",
         "  name: $1",
         "spec:",
+        "  goTemplate: true",
+        "  goTemplateOptions: ['missingkey=error']",
         "  generators:",
         "    - <Generator-Type>",
         "  template:",
@@ -168,7 +170,9 @@
         "          prune: true",
         "          selfHeal: true",
         "        syncOptions:",
-        "          - Validate=false"
+        "          - Validate=false",
+        "  templatePatch: |",
+        "    <Template>"
 
         ]
     }
