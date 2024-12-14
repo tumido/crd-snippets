@@ -164,7 +164,7 @@
         "        path: $6",
         "      destination:",
         "        server: ${7:https://kubernetes.default.svc}",
-        "        namespace $8",
+        "        namespace: $8",
         "      syncPolicy:",
         "        automated:",
         "          prune: true",
