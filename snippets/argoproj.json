@@ -172,7 +172,7 @@
         "        syncOptions:",
         "          - Validate=false",
         "  templatePatch: |",
-        "    <Template>"
+        "    $9"
 
         ]
     }
