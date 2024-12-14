@@ -149,7 +149,7 @@
         "metadata:",
         "  name: $1",
         "spec:",
-        "  goTemplate: true",
+        "  goTemplate: {$2|true,false|}",
         "  goTemplateOptions: ['missingkey=error']",
         "  generators:",
         "    - <Generator-Type>",
