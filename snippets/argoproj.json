@@ -155,16 +155,16 @@
         "    - <Generator-Type>",
         "  template:",
         "    metadata:",
-        "      name: $2",
+        "      name: $3",
         "    spec:",
-        "      project: $3",
+        "      project: $4",
         "      source:",
-        "        repoURL: $4",
-        "        targetRevision: ${5:HEAD}",
-        "        path: $6",
+        "        repoURL: $5",
+        "        targetRevision: ${6:HEAD}",
+        "        path: $7",
         "      destination:",
-        "        server: ${7:https://kubernetes.default.svc}",
-        "        namespace: $8",
+        "        server: ${8:https://kubernetes.default.svc}",
+        "        namespace: $9",
         "      syncPolicy:",
         "        automated:",
         "          prune: true",
@@ -172,7 +172,7 @@
         "        syncOptions:",
         "          - Validate=false",
         "  templatePatch: |",
-        "    $9"
+        "    $10"
 
         ]
     }
