@@ -1,3 +1,5 @@
+## [1.2.1](https://github.com/tumido/crd-snippets/compare/v1.2.0...v1.2.1) (2025-01-05)
+
 # [1.2.0](https://github.com/tumido/crd-snippets/compare/v1.1.0...v1.2.0) (2024-10-22)
 
 
