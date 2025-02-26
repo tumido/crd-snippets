@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Build VSIX extension file
-        uses: HaaLeo/publish-vscode-extension@v1
+        uses: HaaLeo/publish-vscode-extension@v2
         id: vsix-build
         with:
           dryRun: true
